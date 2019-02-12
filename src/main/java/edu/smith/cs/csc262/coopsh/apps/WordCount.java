@@ -1,3 +1,5 @@
+//all tasks using input.poll throw error: Probably forgot to call this.exit(status) in Task definition: TASK
+//java.lang.RuntimeException: Probably forgot to call this.exit(status) in Task definition
 package edu.smith.cs.csc262.coopsh.apps;
 
 import edu.smith.cs.csc262.coopsh.InputLine;
@@ -15,10 +17,9 @@ public class WordCount extends Task {
 	protected void update() {
 		InputLine line = this.input.poll();
 		if (line == null) {
-			// still waiting for more...
+			//still waiting for more...
 			return;
 		}
-		
 		// only output and print when we've seen the whole file!
 		if (line.isEndOfFile()) {
 			this.println(wordCount);
@@ -26,9 +27,9 @@ public class WordCount extends Task {
 			this.exit(0);
 			return;
 		}
-		
+
 		// Otherwise, increment this count!
-		wordCount += line.get().split("\\s+").length;		
+		wordCount += line.get().split("\\s+").length;
 	}
-	
+
 }

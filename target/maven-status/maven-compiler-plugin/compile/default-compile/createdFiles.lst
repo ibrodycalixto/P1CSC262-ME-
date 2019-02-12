@@ -1,0 +1,17 @@
+edu/smith/cs/csc262/coopsh/ConsolePrinter.class
+edu/smith/cs/csc262/coopsh/ShellEnvironment.class
+edu/smith/cs/csc262/coopsh/apps/SimpleGrep.class
+edu/smith/cs/csc262/coopsh/apps/Head.class
+edu/smith/cs/csc262/coopsh/apps/Pwd.class
+edu/smith/cs/csc262/coopsh/RunCLI.class
+edu/smith/cs/csc262/coopsh/text/ShellLexer.class
+edu/smith/cs/csc262/coopsh/text/LexError.class
+edu/smith/cs/csc262/coopsh/apps/Cat.class
+edu/smith/cs/csc262/coopsh/InputLine.class
+edu/smith/cs/csc262/coopsh/text/Token.class
+edu/smith/cs/csc262/coopsh/apps/Echo.class
+edu/smith/cs/csc262/coopsh/Task.class
+edu/smith/cs/csc262/coopsh/apps/WordCount.class
+edu/smith/cs/csc262/coopsh/text/MissingVariableError.class
+edu/smith/cs/csc262/coopsh/text/ShellParser.class
+edu/smith/cs/csc262/coopsh/text/TokenType.class

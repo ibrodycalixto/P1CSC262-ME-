@@ -7,9 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import edu.smith.cs.csc262.coopsh.apps.Cat;
-import edu.smith.cs.csc262.coopsh.apps.Pwd;
-import edu.smith.cs.csc262.coopsh.apps.SimpleGrep;
+import edu.smith.cs.csc262.coopsh.apps.*;
 import edu.smith.cs.csc262.coopsh.apps.WordCount;
 import edu.smith.cs.csc262.coopsh.text.ShellParser;
 import edu.smith.cs.csc262.coopsh.text.Token;
@@ -20,10 +18,10 @@ import edu.smith.cs.csc262.coopsh.text.Token;
  * implemented, and if you use {@linkplain #makeFile(String)} instead of
  * creating new {@linkplain java.io.File} objects directly, it will try to use
  * this current working directory.
- * 
+ *
  * You will mostly be editing the {@linkplain #makeProgram(String, String[])}
  * method.
- * 
+ *
  * @author jfoley
  *
  */
@@ -39,7 +37,7 @@ public class ShellEnvironment {
 
 	/**
 	 * Create a shell environment from the current directory.
-	 * 
+	 *
 	 * @param currentDirectory - try {@code new File(".")}.
 	 */
 	public ShellEnvironment(File currentDirectory) {
@@ -51,7 +49,7 @@ public class ShellEnvironment {
 	/**
 	 * This is the core method of this environment. This is the "exec" system call
 	 * for our toy OS here.
-	 * 
+	 *
 	 * @param name - the name of the program to run.
 	 * @param args - the arguments to pass to that program.
 	 * @return a Task object.
@@ -76,16 +74,17 @@ public class ShellEnvironment {
 			return new Echo(this, args);
 		case "SetVar":
 			//TODO
-			if (args.length != 2){
-				throw new IllegalArgumentException("Need to input variable name and a value!");
-			}
-			return new SetVar(args[0],args[1]);
+			//if (args.length != 2){
+				//throw new IllegalArgumentException("Need to input variable name and a value!");
+			//}
+			//save using method setVariable
+			//this.setVariable(args[0],args[1]);
+			//return new SetVar(env, args[0], args[1]);
 		case "ListFiles":
 			//TODO
-			return new ListFile(this, args);
+			//return new ListFile(this, args);
 			return null;
 		case "SimpleGrep":
-			//TODO
 			return new SimpleGrep(this, args);
 		case "RegexGrep":
 			//TODO
@@ -94,8 +93,7 @@ public class ShellEnvironment {
 			//TODO
 			return null;
 		case "Head":
-			//TODO
-			return null;
+			return new Head(this, args);
 		case "Tail":
 			//TODO
 			return null;
@@ -107,7 +105,7 @@ public class ShellEnvironment {
 
 	/**
 	 * This tries to append the string to the current directory if it makes sense...
-	 * 
+	 *
 	 * @param path - the path the user typed in.
 	 * @return a file from the local directory or an absolute path depending on
 	 *         whether it starts with a /
@@ -122,7 +120,7 @@ public class ShellEnvironment {
 
 	/**
 	 * This is how "cd" works in our shell. It's kind of magical.
-	 * 
+	 *
 	 * @param path
 	 */
 	private void executeChangeDir(String path) {
@@ -146,7 +144,7 @@ public class ShellEnvironment {
 	/**
 	 * Don't worry about the implementation here. This parses a subset of shell
 	 * syntax, and finds the statements separated by pipes.
-	 * 
+	 *
 	 * @param line a string
 	 * @return a list of tasks, that were maybe separated by pipes before.
 	 */
